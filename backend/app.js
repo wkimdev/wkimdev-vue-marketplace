@@ -7,6 +7,8 @@ var logger = require('morgan');
 
 var app = express();
 
+app.use(require('connect-history-api-fallback')());
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
