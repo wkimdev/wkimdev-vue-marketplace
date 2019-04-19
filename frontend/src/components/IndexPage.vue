@@ -14,15 +14,16 @@
 
 <script>
 export default {
-  created() {
-    this.$http.get("/api/movies").then(response => {
-      this.movies = response.data;
-    });
+  computed: {
+    movies() {
+      return this.$store.state.movies;
+    }
   },
-  data() {
-    return {
-      movies: []
-    };
+  created() {
+    this.$store.dispatch("FETCH_MOVIE");
+    // this.$http.get("/api/movies").then(response => {
+    //   this.movies = response.data;
+    // });
   }
 };
 </script>
